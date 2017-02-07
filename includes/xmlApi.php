@@ -19,7 +19,7 @@ foreach($members as $member) {
   
   $memberElement = $dom->createElement('member');
   $nameElement = $dom->createElement('name');
-  $birthdayElement = $dom->createElement('bday');
+  $birthdayElement = $dom->createElement('birthday');
   
   $memberElement->appendChild($nameElement);
 	 $nameElement->appendChild( $fname);
