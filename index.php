@@ -180,7 +180,7 @@ border-top: 2px solid #c3e2f4;
 							}
 							$(".validation-result").addClass("alert-danger").fadeIn("slow").html($message);
 						}else{
-							$(".validation-result").removeClass("alert-danger").addClass("alert-success").html(res.result.message).delay(1500).fadeOut("slow");
+							$(".validation-result").show().removeClass("alert-danger").addClass("alert-success").html(res.result.message).delay(1500).fadeOut("slow");
 							$form.find("#inputName").val("");
 							$form.find("#inputBirthday").val("")
 						}
