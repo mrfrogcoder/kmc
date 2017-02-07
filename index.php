@@ -41,7 +41,7 @@
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" class="btn btn-default">Submit</button>
-       <button type="button" class="btn btn-default">Export to XML</button>
+       <button type="button" class="btn btn-default export">Export to XML</button>
     </div>
   </div>
 </form>
@@ -71,7 +71,13 @@
 			  
 			  
 			event.preventDefault();
-		})
+		});
+		
+		$('.export').click(function(event){
+			
+			 window.location = "./includes/xmlApi.php";
+					
+		 });
 	});
 
 
