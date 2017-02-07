@@ -1,8 +1,10 @@
 <?php
 
+$filename = "php_test.txt";
 
-$members = file('php_test.txt');
 
+if (file_exists($filename)) {
+$members = file($filename);
 $dom = new DOMDocument;
 
 $data = $dom->createElement('community');
@@ -37,5 +39,19 @@ header('Content-Disposition: attachment; filename="php_test.xml"');
 
 echo $dom->saveXML();
 exit();
+} else {
+    
+	
+	
+
+
+
+header('Content-type: text/xml');
+header('Content-Disposition: attachment; filename="php_test.xml"');
+
+echo "The file $filename does not exist. Please complete the following fields.";
+exit();
+}
+
 
 ?>
