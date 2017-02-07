@@ -19,7 +19,7 @@
 
 <body>
    <div class="container">
- 	<div class="alert alert-danger validation-result hide" role="alert">...</div>
+ 	<div class="alert alert-danger validation-result" style="display:none;" role="alert">...</div>
    <form class="form-horizontal " action="/includes/Api.php" method="post">
   <div class="form-group">
     <label for="inputName" class="col-sm-2 control-label">Name   <span>First name only</span></label>
@@ -72,9 +72,11 @@
 							for(var i = 0; i < res.result.message.length;i++){
 								$message += "<p>"+res.result.message[i]+"</p>";
 							}
-							$(".validation-result").removeClass("hide").html($message);
+							$(".validation-result").addClass("alert-danger").fadeIn("slow").html($message);
 						}else{
 							$(".validation-result").removeClass("alert-danger").addClass("alert-success").html(res.result.message).delay(1500).fadeOut("slow");
+							$form.find("#inputName").val("");
+							$form.find("#inputBirthday").val("")
 						}
 						$(".submit").removeAttr("disabled","disabled").text("Submit");
 					}
