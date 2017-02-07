@@ -8,44 +8,150 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <style type="text/css">
+body{
+background:#e1f4f8;	
+}
+
 .form {
     max-width: 500px;
     padding: 15px;
     margin: 0 auto;
 }
+.center-block{
+ text-align:center;	
+}
+.wrapper{
+background: #ebf4fb;
+    border: 2px solid #b1daf1;
+    padding: 0 24px;	
+	margin: 48% 0;
+}
+.subText{
+	
+	color:#667486;font-weight:bold;
+	
+	}
+	h3{
+	
+	font-weight:bold;
+	
+	}
+label span{
+	font-size:11px;
+	color:#788398;
+}
+.btn {
+   min-width: 140px;
+    margin: 3px;
+    background: #212121;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 6px;
+    padding: 9px;
+}
+.alert{
+    margin-top: 24px;	
+}
+input{
+	border-color: #b4d5e7 !important;
+    border-radius: 0  !important;
+}
+hr{
+border-top: 2px solid #c3e2f4;
+
+
+}
+@media (min-width: 1200px){
+	label span{
+	display:block;
+	}
+	.form-horizontal .control-label {
+   padding:0px;
+    margin-bottom: 0;
+    text-align: right;
+	}
+
+}
+@media (min-width: 992px){
+	.form-horizontal .control-label {
+   padding:0px;
+    margin-bottom: 0;
+    text-align: right;
+	}
+	label span{
+	display:block;
+	}
+
+}
+@media (min-width: 768px){
+	.form-horizontal .control-label {
+ 	 padding:0px;
+    margin-bottom: 0;
+    text-align: right;
+	}
+	label span{
+	display:block;
+	
+	}
+
+}
+
+
 </style>
 
 </head>
 
 <body>
    <div class="container">
- 	<div class="alert alert-danger validation-result" style="display:none;" role="alert">...</div>
+ 	<div class="row">
+   
+  <div class="col-md-6 col-md-offset-3">
+  
+    <div class="wrapper">
+    
+   <h3>Sign-Up</h3>
+   <span class="subText">Complete the following fields.</span>
+   <hr />
+    <div class="alert alert-danger validation-result" style="display:none;" role="alert">...</div>
    <form class="form-horizontal " action="/includes/Api.php" method="post">
   <div class="form-group">
-    <label for="inputName" class="col-sm-2 control-label">Name   <span>First name only</span></label>
+    <label for="inputName" class="col-sm-4 control-label">Name   <span>First name only</span></label>
+    
   
-    <div class="col-sm-10">
+    <div class="col-sm-6">
       <input type="text" class="form-control" id="inputName" placeholder="" value="" name="name">
     </div>
   </div>
   <div class="form-group">
-    <label for="inputBirthday" class="col-sm-2 control-label">Birthday <span>mm-dd-yyyy</span></label>
-     
-    <div class="col-sm-10">
+    <label for="inputBirthday" class="col-sm-4 control-label">Birthday <span>mm-dd-yyyy</span></label>
+    
+    <div class="col-sm-6 ">
       <input type="text" class="form-control" id="inputBirthday" placeholder="" value="" name="birthday">
     </div>
   </div>
-  <div class="form-group">
+ 
+   <div class="form-group">
+    <div class="col-sm-offset-4 col-sm-6">
     
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-       <button type="submit" class="btn btn-default submit">Submit</button>
-       <button type="button" class="btn btn-default export">Export to XML</button>
+    
+    
+       <button type="submit" class="btn btn-default submit">Submit</button><br/>
+       <button type="button" class="btn btn-default export">Export to XML</button></div>
+     
+ 
     </div>
   </div>
+  <!--<div class="form-group">
+    <div class="col-sm-10">
+    <div class="center-block"> 
+       <button type="submit" class="btn btn-default submit">Submit</button><br/>
+       <button type="button" class="btn btn-default export">Export to XML</button></div>
+     
+    </div>
+  </div>-->
+  
 </form>
-
+</div></div></div>
     </div> <!-- /container -->
    
 </body>
