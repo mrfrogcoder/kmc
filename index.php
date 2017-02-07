@@ -2,9 +2,14 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Untitled Document</title>
+<title>KMC PHP Exam</title>
 </head>
 
 <body>
+<?php
+
+echo "Hello World!";
+
+?>
 </body>
 </html>
