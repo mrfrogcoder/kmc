@@ -19,8 +19,8 @@
 
 <body>
    <div class="container">
-
-   <form class="form-horizontal form" action="/includes/Api.php" method="post">
+ 	<div class="alert alert-danger validation-result hide" role="alert">...</div>
+   <form class="form-horizontal " action="/includes/Api.php" method="post">
   <div class="form-group">
     <label for="inputName" class="col-sm-2 control-label">Name   <span>First name only</span></label>
   
@@ -40,7 +40,7 @@
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">Submit</button>
+       <button type="submit" class="btn btn-default submit">Submit</button>
        <button type="button" class="btn btn-default export">Export to XML</button>
     </div>
   </div>
@@ -56,16 +56,27 @@
 		$('form').submit(function(event){
 			  $form = $(this),
 			  $actionUrl = $form.attr('action');
-			  console.log(JSON.stringify($form.serialize()));
+			  $(".submit").attr("disabled","disabled").text("Submitting...");
 			  $.ajax({
 				 	url : "."+$actionUrl,
 					type: "POST",
 					data:  { name : $form.find("#inputName").val() , birthday : $form.find("#inputBirthday").val()},
-						beforeSend: function(){
+					beforeSend: function(){
 						
 					},
 					success: function(res){
-						console.log(res);	
+						console.log(res);
+						$message = "";
+						if(res.result.error == 1){
+							
+							for(var i = 0; i < res.result.message.length;i++){
+								$message += "<p>"+res.result.message[i]+"</p>";
+							}
+							$(".validation-result").removeClass("hide").html($message);
+						}else{
+							$(".validation-result").removeClass("alert-danger").addClass("alert-success").html(res.result.message).delay(1500).fadeOut("slow");
+						}
+						$(".submit").removeAttr("disabled","disabled").text("Submit");
 					}
 			  });
 			  
